@@ -31,6 +31,7 @@ export const signup = async (req, res) => {
 			password: hashedPassword,
 			gender,
 			profilePic: gender === "male" ? boyProfilePic : girlProfilePic,
+			language: "en", // Set default language to English
 		});
 
 		if (newUser) {
@@ -43,6 +44,7 @@ export const signup = async (req, res) => {
 				fullName: newUser.fullName,
 				username: newUser.username,
 				profilePic: newUser.profilePic,
+				language: newUser.language,
 			});
 		} else {
 			res.status(400).json({ error: "Invalid user data" });
@@ -70,6 +72,7 @@ export const login = async (req, res) => {
 			fullName: user.fullName,
 			username: user.username,
 			profilePic: user.profilePic,
+			language: user.language || "en", // Ensure language is included, default to English
 		});
 	} catch (error) {
 		console.log("Error in login controller", error.message);
