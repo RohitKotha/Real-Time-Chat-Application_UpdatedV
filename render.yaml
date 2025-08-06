@@ -5,6 +5,7 @@ services:
     plan: free
     buildCommand: npm install && cd frontend && npm install && npm run build
     startCommand: npm start
+    healthCheckPath: /
     envVars:
       - key: NODE_ENV
         value: production
@@ -17,4 +18,4 @@ services:
       - key: AWS_SECRET_ACCESS_KEY
         sync: false
       - key: AWS_REGION
-        sync: false
+        value: us-east-1
