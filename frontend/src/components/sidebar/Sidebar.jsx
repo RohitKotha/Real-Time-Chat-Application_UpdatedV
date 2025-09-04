@@ -5,10 +5,10 @@ import LanguageSelector from "./LanguageSelector";
 
 const Sidebar = () => {
 	   return (
-			   <div className='border-r border-slate-500 p-4 flex flex-col'>
+			   <div className='border-r border-white/20 p-5 flex flex-col min-w-[270px] bg-white/5 backdrop-blur-sm'>
 					   <LanguageSelector />
 					   <SearchInput />
-					   <div className='divider px-3'></div>
+					   <div className='divider px-3 border-white/20'></div>
 					   <Conversations />
 					   <LogoutButton />
 			   </div>

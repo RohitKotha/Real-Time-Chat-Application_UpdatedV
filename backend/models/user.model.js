@@ -19,7 +19,7 @@ const userSchema = new mongoose.Schema(
 		gender: {
 			type: String,
 			required: true,
-			enum: ["male", "female"],
+			enum: ["male", "female", "AI"],
 		},
 	   profilePic: {
 		   type: String,
@@ -28,6 +28,10 @@ const userSchema = new mongoose.Schema(
 	   language: {
 		   type: String,
 		   default: "en",
+	   },
+	   isAI: {
+		   type: Boolean,
+		   default: false,
 	   },
 		// createdAt, updatedAt => Member since <createdAt>
 	},

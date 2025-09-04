@@ -19,7 +19,14 @@ const useSendMessage = () => {
 					   const data = await res.json();
 					   if (data.error) throw new Error(data.error);
 
-					   setMessages([...messages, data]);
+					   // Check if the response contains both user message and AI response
+					   if (data.message && data.aiResponse) {
+						   // Add both messages to the state
+						   setMessages([...messages, data.message, data.aiResponse]);
+					   } else {
+						   // Just add the user message (standard case)
+						   setMessages([...messages, data]);
+					   }
 			   } catch (error) {
 					   toast.error(error.message);
 			   } finally {

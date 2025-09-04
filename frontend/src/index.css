@@ -3,28 +3,65 @@
 @tailwind utilities;
 
 body {
-	background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("/bg.png");
+	background: linear-gradient(135deg, rgba(16, 16, 32, 0.9), rgba(32, 16, 64, 0.9)), url("/bg2.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
+	background-attachment: fixed;
+	font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-/* dark mode looking scrollbar */
+/* Modern glass effect utilities */
+.glass {
+	background: rgba(255, 255, 255, 0.1);
+	backdrop-filter: blur(20px);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.glass-strong {
+	background: rgba(255, 255, 255, 0.15);
+	backdrop-filter: blur(25px);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Custom scrollbar with glass effect */
 ::-webkit-scrollbar {
-	width: 8px;
+	width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-	background: #555;
+	background: rgba(255, 255, 255, 0.05);
+	border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-	background: #121212;
-	border-radius: 5px;
+	background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+	border-radius: 10px;
+	border: 2px solid transparent;
+	background-clip: content-box;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-	background: #242424;
+	background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2));
+	background-clip: content-box;
+}
+
+/* Enhanced dropdown animation */
+@keyframes dropdownFadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(-10px) scale(0.95);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+	}
+}
+
+.dropdown-enter {
+	animation: dropdownFadeIn 0.2s ease-out forwards;
 }
 
 /* SHAKE ANIMATION ON HORIZONTAL DIRECTION */
@@ -56,4 +93,31 @@ body {
 	60% {
 		transform: translate3d(4px, 0, 0);
 	}
+}
+
+/* Enhanced input and button styles */
+.glass-input {
+	background: rgba(255, 255, 255, 0.1);
+	backdrop-filter: blur(10px);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	transition: all 0.3s ease;
+}
+
+.glass-input:focus {
+	background: rgba(255, 255, 255, 0.15);
+	border-color: rgba(96, 165, 250, 0.5);
+	box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.1);
+}
+
+.glass-button {
+	background: rgba(255, 255, 255, 0.1);
+	backdrop-filter: blur(10px);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	transition: all 0.3s ease;
+}
+
+.glass-button:hover {
+	background: rgba(255, 255, 255, 0.2);
+	transform: translateY(-1px);
+	box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }

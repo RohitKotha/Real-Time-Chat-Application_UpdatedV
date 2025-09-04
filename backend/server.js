@@ -9,6 +9,7 @@ import userRoutes from "./routes/user.routes.js";
 
 import connectToMongoDB from "./db/connectToMongoDB.js";
 import { app, server } from "./socket/socket.js";
+import setupAIAssistant from "./setup/aiSetup.js";
 
 dotenv.config();
 
@@ -29,7 +30,9 @@ app.get("*", (req, res) => {
 	res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
 });
 
-server.listen(PORT, () => {
-	connectToMongoDB();
+server.listen(PORT, async () => {
+	await connectToMongoDB();
 	console.log(`Server Running on port ${PORT}`);
+	// Initialize AI assistant
+	await setupAIAssistant();
 });
