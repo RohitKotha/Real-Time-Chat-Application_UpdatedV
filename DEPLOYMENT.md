@@ -50,7 +50,7 @@ Add these in Render Dashboard → Environment:
 
 ## 📝 Sample MongoDB URI Format
 ```
-mongodb+srv://username:password@cluster.mongodb.net/chatapp?retryWrites=true&w=majority
+////
 ```
 
 Replace:
